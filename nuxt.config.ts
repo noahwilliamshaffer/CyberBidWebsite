@@ -12,6 +12,48 @@ declare const process: {
 }
 
 export default defineNuxtConfig({
+  devtools: { enabled: true },
+  
+  modules: [
+    '@nuxtjs/tailwindcss',
+  ],
+
+  app: {
+    head: {
+      title: 'CyberBid - Cyber Security Bidding Platform',
+      htmlAttrs: { lang: 'en' },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { 
+          name: 'description', 
+          content: 'CyberBid is a modern platform connecting cyber security professionals with businesses needing security services.'
+        }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
+  },
+
+  // Tailwind configuration
+  tailwindcss: {
+    config: {
+      content: [
+        './components/**/*.{js,vue,ts}',
+        './layouts/**/*.vue',
+        './pages/**/*.vue',
+        './plugins/**/*.{js,ts}',
+        './app.vue'
+      ]
+    }
+  },
+
+  typescript: {
+    strict: true,
+    typeCheck: true
+  },
+
   runtimeConfig: {
     public: {
       datoCmsToken: process.env.DATO_CMS_TOKEN,
