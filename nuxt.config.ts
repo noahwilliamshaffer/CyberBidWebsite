@@ -1,10 +1,21 @@
 /* eslint-disable no-undef */
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// @ts-ignore
+import { defineNuxtConfig } from '@nuxt/kit'
+
+declare const process: {
+  env: {
+    DATO_CMS_TOKEN: string;
+    ENVATO_ACCESS_TOKEN: string;
+  }
+}
+
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      datoCmsToken:process.env.DATO_CMS_TOKEN,
-      envatoAccessToken:process.env.ENVATO_ACCESS_TOKEN
+      datoCmsToken: process.env.DATO_CMS_TOKEN,
+      envatoAccessToken: process.env.ENVATO_ACCESS_TOKEN
     },
   },
   ssr: true,
@@ -139,11 +150,9 @@ export default defineNuxtConfig({
     '@nuxt/image',
     "@nuxtjs/tailwindcss",
     "@nuxt/content",
-    "@nuxt/image",
     "@nuxtjs/google-fonts",
     "nuxt-simple-robots",
-    "nuxt-simple-sitemap",
-    'nuxt-og-image',
+    "nuxt-simple-sitemap"
   ],
   robots: {
     disallow: [
